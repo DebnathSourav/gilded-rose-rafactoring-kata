@@ -7,6 +7,30 @@ import org.junit.Test;
 public class GildedRoseTest {
 
     @Test
+    public void ToString(){
+        Item[] brie = new Item[]{new Item("Aged Brie", 2, 0)};
+        GildedRose gr = new GildedRose(brie);
+
+        assertEquals("Aged Brie, 2, 0", brie[0].toString());
+    }
+
+    @Test
+    public void QualityGoesDownTwiceAsFastWhenSellInIsZero(){
+        Item[] item = new Item[]{new Item("Stupid Item", 0, 2)};
+        GildedRose gr = new GildedRose(item);
+        gr.updateQuality();
+        assertEquals(0, item[0].quality);
+    }
+
+    @Test
+    public void QualityGoesDown(){
+        Item[] item = new Item[]{new Item("Stupid Item", 10, 2)};
+        GildedRose gr = new GildedRose(item);
+        gr.updateQuality();
+        assertEquals(1, item[0].quality);
+    }
+
+    @Test
     public void BrieGoesUp(){
         Item[] brie = new Item[]{new Item("Aged Brie", 2, 0)};
         GildedRose gr = new GildedRose(brie);
@@ -72,6 +96,14 @@ public class GildedRoseTest {
         gr.updateQuality();
         gr.updateQuality();
         assertEquals(0, backstagePass[0].quality);
+    }
+
+    @Test
+    public void ConjuredItems(){
+        Item[] backstagePass = new Item[]{new Item("Aged Brie", 1, 0)};
+        GildedRose gr = new GildedRose(backstagePass);
+        gr.updateQuality();
+        assertEquals(2, backstagePass[0].quality);
     }
 
 }
