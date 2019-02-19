@@ -42,12 +42,21 @@ public class GildedRoseTest {
     public void SulfurasStaystheSame(){
         Item[] Sulfuras = new Item[]{new Item("Sulfuras, Hand of Ragnaros", 2, 80)};
         GildedRose gr = new GildedRose(Sulfuras);
-        gr.updateQuality();
         assertEquals(80, Sulfuras[0].quality);
         for(int i=0 ; i<= 80 ; i++) {
             gr.updateQuality();
         }
         assertEquals(80, Sulfuras[0].quality);
+    }
+
+    @Test
+    public void SulfurasSellInStaysTheSame(){
+        Item[] Sulfuras = new Item[]{new Item("Sulfuras, Hand of Ragnaros", 2, 80)};
+        GildedRose gr = new GildedRose(Sulfuras);
+        for(int i=0 ; i<= 80 ; i++) {
+            gr.updateQuality();
+        }
+        assertEquals(2, Sulfuras[0].sellIn);
     }
 
     @Test
@@ -91,7 +100,7 @@ public class GildedRoseTest {
     }
     @Test
     public void BackstagePassesDropsToZeroIfDateIsPassed(){
-        Item[] backstagePass = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", 1, 0)};
+        Item[] backstagePass = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", 1, 10)};
         GildedRose gr = new GildedRose(backstagePass);
         gr.updateQuality();
         gr.updateQuality();
@@ -104,6 +113,15 @@ public class GildedRoseTest {
         GildedRose gr = new GildedRose(backstagePass);
         gr.updateQuality();
         assertEquals(2, backstagePass[0].quality);
+    }
+
+    @Test
+    public void Update(){
+        Item[] backstagePass = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", 1, 10)};
+        GildedRose gr = new GildedRose(backstagePass);
+        gr.update(backstagePass[0]);
+        gr.update(backstagePass[0]);
+        assertEquals(0, backstagePass[0].quality);
     }
 
 }
