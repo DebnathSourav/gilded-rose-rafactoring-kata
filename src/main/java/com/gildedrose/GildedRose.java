@@ -18,23 +18,23 @@ class GildedRose {
             case "Aged Brie":
             {
                 if (item.quality < 50) {
-                    item.quality = item.quality + 1;
+                    item.quality += 1;
                 }
                 break;
             }
             case "Backstage passes to a TAFKAL80ETC concert":
             {
                 if (item.quality < 50) {
-                    item.quality = item.quality + 1;
+                    item.quality += 1;
                 }
                 if (item.sellIn < 11) {
                     if (item.quality < 50) {
-                        item.quality = item.quality + 1;
+                        item.quality += 1;
                     }
                 }
                 if (item.sellIn < 6) {
                     if (item.quality < 50) {
-                        item.quality = item.quality + 1;
+                        item.quality += 1;
                     }
                 }
                 if (item.sellIn < 1) {
@@ -45,10 +45,10 @@ class GildedRose {
             default:
             {
                 if (item.sellIn < 1) {
-                    item.quality = item.quality - 2;
+                    item.quality -= 2;
                 }
                 else {
-                    item.quality = item.quality - 1;
+                    item.quality -= 1;
                 }
                 break;
             }
