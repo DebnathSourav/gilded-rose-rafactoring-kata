@@ -13,12 +13,14 @@ class GildedRose {
             case "Sulfuras, Hand of Ragnaros":
             {
                 item.quality = 80;
+                break;
             }
             case "Aged Brie":
             {
                 if (item.quality < 50) {
                     item.quality = item.quality + 1;
                 }
+                break;
             }
             case "Backstage passes to a TAFKAL80ETC concert":
             {
@@ -38,6 +40,17 @@ class GildedRose {
                 if (item.sellIn < 1) {
                     item.quality = 0;
                 }
+                break;
+            }
+            default:
+            {
+                if (item.sellIn < 1) {
+                    item.quality = item.quality - 2;
+                }
+                else {
+                    item.quality = item.quality - 1;
+                }
+                break;
             }
         }
         if(item.name!="Sulfuras, Hand of Ragnaros") item.sellIn = item.sellIn - 1;
