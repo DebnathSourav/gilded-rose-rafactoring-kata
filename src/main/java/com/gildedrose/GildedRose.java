@@ -37,11 +37,12 @@ class GildedRose {
             }
             default:
             {
+                int factor = item.name.toLowerCase().contains("conjured") ? 2 : 1;
                 if (item.sellIn < 1) {
-                    item.quality -= 2;
+                    item.quality -= 2*factor;
                 }
                 else {
-                    item.quality -= 1;
+                    item.quality -= 1*factor;
                 }
                 break;
             }
@@ -51,6 +52,8 @@ class GildedRose {
             if (item.quality > 50) item.quality = 50;
             item.sellIn = item.sellIn - 1;
         }
+        if (item.quality <= 0) item.quality = 0;
+
     }
 
     public void updateQuality() {

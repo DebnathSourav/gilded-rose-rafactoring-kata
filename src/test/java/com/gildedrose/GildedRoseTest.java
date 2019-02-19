@@ -109,10 +109,10 @@ public class GildedRoseTest {
 
     @Test
     public void ConjuredItems(){
-        Item[] backstagePass = new Item[]{new Item("Aged Brie", 1, 0)};
+        Item[] backstagePass = new Item[]{new Item("Conjured Shoes", 5, 2)};
         GildedRose gr = new GildedRose(backstagePass);
         gr.updateQuality();
-        assertEquals(2, backstagePass[0].quality);
+        assertEquals(0, backstagePass[0].quality);
     }
 
     @Test
