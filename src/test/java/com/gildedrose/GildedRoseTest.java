@@ -33,4 +33,45 @@ public class GildedRoseTest {
         gr.updateQuality();
         assertEquals(80, Sulfuras[0].quality);
     }
+
+    @Test
+    public void QualityNeverExceeds50(){ //todo need to test all types
+        Item[] brie = new Item[]{new Item("Aged Brie", 2, 0)};
+        GildedRose gr = new GildedRose(brie);
+        for(int i=0 ; i<= 80 ; i++) {
+            gr.updateQuality();
+        }
+        assertEquals(50, brie[0].quality);
+    }
+
+    @Test
+    public void BackstagePassesIncreaseBy1(){
+        Item[] backstagePass = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", 11, 0)};
+        GildedRose gr = new GildedRose(backstagePass);
+        gr.updateQuality();
+        assertEquals(1, backstagePass[0].quality);
+    }
+    @Test
+    public void BackstagePassesIncreaseBy2(){
+        Item[] backstagePass = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", 8, 0)};
+        GildedRose gr = new GildedRose(backstagePass);
+        gr.updateQuality();
+        assertEquals(2, backstagePass[0].quality);
+    }
+    @Test
+    public void BackstagePassesIncreaseBy3(){
+        Item[] backstagePass = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", 4, 0)};
+        GildedRose gr = new GildedRose(backstagePass);
+        gr.updateQuality();
+        assertEquals(3, backstagePass[0].quality);
+    }
+    @Test
+    public void BackstagePassesDropsToZeroIfDateIsPassed(){
+        Item[] backstagePass = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", 1, 0)};
+        GildedRose gr = new GildedRose(backstagePass);
+        gr.updateQuality();
+        gr.updateQuality();
+        assertEquals(0, backstagePass[0].quality);
+    }
+
 }
