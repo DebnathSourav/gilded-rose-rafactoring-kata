@@ -7,7 +7,8 @@ Link to MOB video: https://1drv.ms/v/s!AkmQZ4e_MAhqgq1ZbHwFHP9PnGhArg
 (the video cutout for some reason, i think we only partially captured the additional features part of the excercise but we did it as a team and as a MOB.)
 
 Team Roster:
-Sourav Debnath
-Martin Perry
-Kristin Hegna
-Christopher Taylor
+
+* Sourav Debnath
+* Martin Perry
+* Kristin Hegna
+* Christopher Taylor
